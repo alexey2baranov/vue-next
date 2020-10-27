@@ -30,6 +30,8 @@
           :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }"
       >
         Content
+        <a-button @click="height+=10" >Up height</a-button>
+        <User :height2="height" message="Hello world"></User>
       </a-layout-content>
     </a-layout>
   </a-layout>
@@ -42,6 +44,7 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
 } from '@ant-design/icons-vue';
+import User from "@/views/User"
 
 export default {
   components: {
@@ -50,11 +53,13 @@ export default {
     UploadOutlined,
     MenuUnfoldOutlined,
     MenuFoldOutlined,
+    User,
   },
   data() {
     return {
       selectedKeys: ['1'],
       collapsed: false,
+      height: 200,
     };
   },
 };
