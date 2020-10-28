@@ -1,18 +1,38 @@
-import {createStore} from 'vuex'
+import { createStore } from "vuex";
 
-export type State = {
-    count: number,
-    height: number,
+export interface User {
+  name: string;
+  password: string;
+}
+export interface State {
+  count: number;
+  height: number;
+  user: User;
 }
 
-export const store= createStore({
-    state() {
-        return {
-            count: 1,
-            height: 200,
-        }
+export const state: State = {
+  count: 1,
+  height: 200,
+  user: {
+    name: "alexey2baranov",
+    password: "qwerty",
+  },
+};
+
+export const store = createStore({
+  state,
+  mutations: {
+    setUser: (state: State, value: User) => {
+      state.user = value;
     },
-    mutations: {},
-    actions: {},
-    modules: {}
-})
+  },
+  actions: {},
+  modules: {},
+  getters: {
+    reversedUsername: ({ user }) =>
+      user.name
+        .split("")
+        .reverse()
+        .join(""),
+  },
+});

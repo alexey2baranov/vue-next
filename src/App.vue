@@ -20,17 +20,27 @@
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0">
         <menu-unfold-outlined
-            v-if="collapsed"
-            class="trigger"
-            @click="() => (collapsed = !collapsed)"
+          v-if="collapsed"
+          class="trigger"
+          @click="() => (collapsed = !collapsed)"
         />
-        <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
+        <menu-fold-outlined
+          v-else
+          class="trigger"
+          @click="() => (collapsed = !collapsed)"
+        />
       </a-layout-header>
       <a-layout-content
-          :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }"
+        :style="{
+          margin: '24px 16px',
+          padding: '24px',
+          background: '#fff',
+          minHeight: '280px',
+        }"
       >
         Content
-        <a-button @click="height+=10" >Up height</a-button>
+
+        <a-button @click="height += 10">Up height</a-button>
         <User :height2="height" message="Hello world"></User>
       </a-layout-content>
     </a-layout>
@@ -43,8 +53,8 @@ import {
   UploadOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-} from '@ant-design/icons-vue';
-import User from "@/views/User"
+} from "@ant-design/icons-vue";
+import User from "@/components/User";
 
 export default {
   components: {
@@ -57,7 +67,7 @@ export default {
   },
   data() {
     return {
-      selectedKeys: ['1'],
+      selectedKeys: ["1"],
       collapsed: false,
       height: 200,
     };
