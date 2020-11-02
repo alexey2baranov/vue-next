@@ -1,19 +1,37 @@
 <template>
   <div class="home">
-    <a-button>asd</a-button>
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <a-button @click="test" type="danger">check Error</a-button>
+    <a-button @click="testTest" type="danger">check logger and actions</a-button>
+    <card-chart/>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import CardChart from '@/components/Charts/CardChart.vue';
+import {useStore} from '@/store';
+import {ActionTypes} from '@/store/modules/alert/actions';
+import {defineComponent} from 'vue';
 
 export default defineComponent({
   name: 'Home',
   components: {
-    HelloWorld,
+    CardChart
   },
+  setup() {
+    let state = useStore();
+
+
+    const test = () => {
+      throw new Error('error asd asd');
+    };
+    const testTest = () => {
+      state.dispatch(ActionTypes.fetchData);
+    };
+
+    return {
+      test,
+      testTest
+    };
+  }
 });
 </script>
