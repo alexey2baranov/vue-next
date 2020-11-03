@@ -13,6 +13,8 @@ const app = createApp(App).use(store).use(router).use(Antd);
 // app.config.productionTip = false;
 app.mount('#app')
 
+app.config.isCustomElement = tag => tag.startsWith('a-')
+
 app.config.errorHandler = (err: any, vm: any, info: any) => {
   handlerError(err, vm, info)
 }
