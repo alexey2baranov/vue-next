@@ -1,14 +1,14 @@
 export interface IConstants{
-  api:{
-    baseUrl: string,
-  },
+  api: {
+    baseUrl: string;
+  };
   keycloak: {
-    realm: string,
-    url: string,
-    clientId:string,
-  },
+    realm: string;
+    url: string;
+    clientId: string;
+  };
 }
-const constants : { [keys: string]: IConstants }= {
+const constants: { [keys: string]: IConstants }= {
   development: {
     api: {
       baseUrl: 'http://localhost:3000/api/'

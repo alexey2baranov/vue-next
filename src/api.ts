@@ -2,13 +2,13 @@ import container from '@/di/container';
 import {merge} from 'lodash';
 
 interface IApiInit extends Omit<RequestInit, 'body'> {
-  body?: BodyInit | object,
+  body?: BodyInit | object;
 }
 
 export default async function api(url: string, initOptions: IApiInit) {
   // слил опции по умолчанию и переданные опции и получил итоговый массив опций
   await container.keycloak.updateToken(30);
-  const options : RequestInit= {
+  const options: RequestInit= {
     // credentials: true,
     headers: {
       Accept: 'application/json',

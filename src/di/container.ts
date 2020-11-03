@@ -8,7 +8,7 @@ container.bind<Keycloak.KeycloakInstance>(TYPES.Keycloak).toDynamicValue((contex
   const result = Keycloak(context.container.get<IConstants>(TYPES.constants).keycloak)
 
   if (process.env.NODE_ENV=== 'test'){
-    result.updateToken= (minValidity:number) => {
+    result.updateToken= (minValidity: number) => {
       return new Promise((res) => res()) as KeycloakPromise<boolean, boolean>;
     }
     result.init= (initOptions: KeycloakInitOptions) => {
