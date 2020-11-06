@@ -15,10 +15,10 @@ import Home from '../Home.vue'
 describe('HelloWorld.vue',  () => {
   test('отрисовывает props.msg, если они переданы', async () => {
     // @ts-ignore
-    const wrapper = shallowMount(Home)
+    const wrapper = mount(Home)
     // await wrapper.find('.btn').trigger('click')
-    console.log(wrapper.find('.btn').html());
-    let store = useStore()
-    console.log(await store.dispatch(ActionTypes.fetchData));
+    console.log(wrapper.html());
+    // let store = useStore()
+    // console.log(await store.dispatch(ActionTypes.fetchData));
   })
 })
