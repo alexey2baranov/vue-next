@@ -14,17 +14,8 @@ import {store} from './store';
 async function main() {
   const token = await container.keycloak.init({onLoad: 'login-required', enableLogging: true});
 
-
-  // url.searchParams.delete('code');
-  // url.searchParams.delete('state');
-  // url.searchParams.delete('session_state');
-  // history.pushState(null, '', url.href);
-
   const app = createApp(App).use(store).use(router).use(Antd);
   app.mount('#app');
-
-
-// app.config.isCustomElement = tag => tag.startsWith('a-')
 
   app.config.errorHandler = (err: any, vm: any, info: any) => {
     handlerError(err, vm, info);
