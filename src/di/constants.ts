@@ -1,4 +1,4 @@
-export interface IConstants{
+export interface IConstants {
   api: {
     baseUrl: string;
   };
@@ -8,16 +8,20 @@ export interface IConstants{
     clientId: string;
   };
 }
-const constants: { [keys: string]: IConstants }= {
+
+const constants: { [keys: string]: IConstants } = {
   development: {
     api: {
       baseUrl: 'http://localhost:3000/api/'
     },
     keycloak: {
-      realm: "open.ru",
-      url: "https://urz.open.ru:8030/auth/",
-      clientId: "sova-prod",
-    },
+      clientId: "urz-prod",
+      // realm: "open.ru",
+      // url: "https://urz.open.ru:8443/auth/",
+      realm: 'open.ru',
+      url: 'https://urz.open.ru:8030/auth/',
+      // clientId: 'sova-prod'
+    }
   },
   test: {
     api: {
@@ -25,10 +29,10 @@ const constants: { [keys: string]: IConstants }= {
       // path: 'http://10.66.2.80:3000/api/'
     },
     keycloak: {
-      url: "http://urz.open.ru:8082/auth/",
-      realm: "open.ru",
-      clientId: 'sova-prod',
-    },
+      url: 'http://urz.open.ru:8082/auth/',
+      realm: 'open.ru',
+      clientId: 'sova-prod'
+    }
   },
   //for production
   production: {
@@ -36,9 +40,9 @@ const constants: { [keys: string]: IConstants }= {
       baseUrl: 'https://urz.open.ru/api/'
     },
     keycloak: {
-      url: "https://urz.open.ru:8443/auth/",
-      realm: "open.ru",
-      clientId: 'sova-prod',
+      url: 'https://urz.open.ru:8443/auth/',
+      realm: 'open.ru',
+      clientId: 'sova-prod'
     }
   },
   //for staging
@@ -47,10 +51,10 @@ const constants: { [keys: string]: IConstants }= {
       baseUrl: 'https://urz.open.ru:444/api/'
     },
     keycloak: {
-      url: "https://urz.open.ru:8050/auth/",
-      realm: "open.ru",
-      clientId: 'sova-prod',
+      url: 'https://urz.open.ru:8050/auth/',
+      realm: 'open.ru',
+      clientId: 'sova-prod'
     }
-  },
-}
-export default constants
+  }
+};
+export default constants;

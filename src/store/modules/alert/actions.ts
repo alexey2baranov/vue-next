@@ -1,3 +1,4 @@
+import api from '@/api';
 import TypesAlert from '@/store/modules/alert/types';
 import {ActionContext, ActionTree} from 'vuex';
 import {Mutations, MutationTypes} from './mutations';
@@ -15,19 +16,20 @@ type ActionArguments = Omit<ActionContext<State, State>, 'commit'> & {
 }
 
 export type Actions = {
-  [ActionTypes.fetchData](context: ActionArguments): void;
+  [ActionTypes.fetchData](context: ActionArguments): object;
 }
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
 
 export const actions: ActionTree<State, State> & Actions = {
   async [ActionTypes.fetchData]({commit}) {
-    await sleep(4000)
+    const response = await api('company/210/company-attributes')
     commit(MutationTypes.SetItems, {
       message: 'msg',
       description: 'description',
       type: TypesAlert.success
     });
+    return response
   }
 };
 

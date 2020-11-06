@@ -21,7 +21,8 @@ module.exports = {
     "prefer-const": ["off", {
       "destructuring": "any",
       "ignoreReadBeforeAssign": false
-    }]
+    }],
+    "@typescript-eslint/interface-name-prefix": [ "off", { "prefixWithI": "always" }]
   },
 
   overrides: [

@@ -17,14 +17,17 @@
     </a-layout>
   </a-layout>
 </template>
-<script>
-import {ref} from "vue";
-import TheHeader from "@/components/App/TheHeader";
-import SideBar from "@/components/App/SideBar";
+<script lang="ts">
+import {
+  ref,
+  defineComponent
+} from "vue";
+import TheHeader from "@/components/App/TheHeader.vue";
+import SideBar from "@/components/App/SideBar.vue";
 
-import Alert from './components/App/Alert'
+import Alert from './components/App/Alert.vue'
 
-export default {
+export default defineComponent ({
   components: {
     TheHeader,
     SideBar,
@@ -40,7 +43,7 @@ export default {
       switchCollapsed
     }
   }
-};
+})
 </script>
 <style scoped>
 #components-layout-demo-custom-trigger {

@@ -5,7 +5,7 @@ interface IApiInit extends Omit<RequestInit, 'body'> {
   body?: BodyInit | object;
 }
 
-export default async function api(url: string, initOptions: IApiInit) {
+export default async function api(url: string, initOptions?: IApiInit) {
   // слил опции по умолчанию и переданные опции и получил итоговый массив опций
   await container.keycloak.updateToken(30);
   const options: RequestInit= {
@@ -19,7 +19,7 @@ export default async function api(url: string, initOptions: IApiInit) {
   merge(options, initOptions);
 
   // привел тело в JSON
-  if (initOptions.body) {
+  if (initOptions?.body) {
     options.body= JSON.stringify(initOptions.body)
   }
   let fullUrl;

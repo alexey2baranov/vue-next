@@ -6,10 +6,10 @@ import TypesAlert from '@/store/modules/alert/types';
 const store = useStore()
 
 export function handlerError (err: any, vm: any, info: any) {
-  console.error(err.stack, info)
+  console.error(err?.stack ? err.stack : err)
     store.commit(MutationTypes.SetItems, {
-      message: err.message,
-      description: err.stack,
+      message: err?.message || '',
+      description: err?.stack || err,
       type: TypesAlert.error
     })
 }
