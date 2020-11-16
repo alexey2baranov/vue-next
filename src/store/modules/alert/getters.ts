@@ -1,11 +1,11 @@
 import {GetterTree} from 'vuex'
-import {State} from './state'
+import {State} from '@/store/helpers/intersectionState';
 
-export type Getters = {
+export type GettersAlert = {
   optionsAlert(state: State): object;
 }
 
-export const getters: GetterTree<State, State> & Getters = {
+export const getters: GetterTree<State, State> & GettersAlert = {
   optionsAlert(state): object {
     return state.alert
   }

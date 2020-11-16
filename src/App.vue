@@ -10,6 +10,7 @@
           padding: '24px',
           background: '#ececec',
           minHeight: '280px',
+          height: '100%',
         }"
       >
         <router-view />
@@ -47,7 +48,9 @@ export default defineComponent ({
 </script>
 <style scoped>
 #components-layout-demo-custom-trigger {
-  width: 100vm;
+  display: flex;
+  width: 100%;
   height: 100vh;
+  /*overflow-x: hidden;*/
 }
 </style>

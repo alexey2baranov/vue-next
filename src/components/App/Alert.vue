@@ -1,7 +1,7 @@
 <template>
-  <div style="display:flex; height: 90px; width: 1000px; position: absolute; top: 10px; left: 50%;
+  <div style="display:flex; height: 90px; width: 50%; position: absolute; top: 10px; left: 50%;
     transform: translate(-25%, 0)">
-    <alert-item v-if="store.state.isVisible"
+    <alert-item v-if="store.state.alert.isVisible"
                 :message="optionsAlert.message"
                 :description="optionsAlert.description"
                 :type="optionsAlert.type"
@@ -18,8 +18,7 @@ import {
   computed,
 } from "vue";
 import {useStore} from "vuex";
-import {Alert} from "@/store/modules/alert/state";
-import {MutationTypes} from "@/store/modules/alert/mutations";
+import {MutationTypes} from '@/store/helpers/typesStore';
 import AlertItem from './AlertItem.vue'
 
 export default defineComponent({

@@ -1,16 +1,23 @@
-import {actions, Actions} from '@/store/modules/alert/actions';
 import {CommitOptions, createLogger, createStore, DispatchOptions, Store as VuexStore} from 'vuex';
-import {Getters, getters} from './modules/alert/getters';
-import {Mutations, mutations} from './modules/alert/mutations';
+import {State} from '@/store/helpers/intersectionState'
+import {Actions} from '@/store/helpers/intersectionActions'
+import {Mutations} from '@/store/helpers/intersectionMutations'
+import {Getters} from '@/store/helpers/intersectionsGetters'
 
-import {State, state} from './modules/alert/state';
+import user from '@/store/modules/user'
+import alert from '@/store/modules/alert'
+
 
 export const store = createStore({
   plugins: process.env.NODE_ENV === 'development' ? [createLogger()] : [],
-  state,
-  actions,
-  mutations,
-  getters
+  state: undefined,
+  actions: {},
+  mutations: {},
+  getters: {},
+  modules: {
+    user,
+    alert
+  }
 });
 
 export function useStore() {
@@ -35,6 +42,11 @@ export type Store = Omit<VuexStore<State>,
 }
   & {
   getters: {
-    [K in keyof Getters]: ReturnType<Getters[K]>
+    [K in keyof Getters]: ReturnType<Getters[K]>;
+  };
+}
+  & {
+  state: {
+    [K in keyof State]: ReturnType<() => State[K]>;
   };
 }

@@ -1,4 +1,4 @@
-export type State = {
+export type StateAlert = {
   isVisible: boolean;
   alert: object;
 }
@@ -9,7 +9,7 @@ export type Alert = {
   type: string;
 }
 
-export const state: State = {
+export const state: StateAlert = {
   isVisible: false,
   alert: {
     message: '',

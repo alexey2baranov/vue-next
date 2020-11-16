@@ -1,5 +1,4 @@
 import container from '@/di/container';
-import {MutationTypes} from '@/store/modules/alert/mutations';
 import TypesAlert from '@/store/modules/alert/types';
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
@@ -8,14 +7,17 @@ import App from './App.vue';
 import {handlerError, handlerWarn} from './config';
 
 import router from './router';
-import {store} from './store';
+import {store, useStore} from './store';
 
+import {MutationTypes} from '@/store/helpers/typesStore';
 
 async function main() {
-  const token = await container.keycloak.init({onLoad: 'login-required', enableLogging: true});
+  const token = await container.keycloak.init({onLoad: 'login-required'});
 
   const app = createApp(App).use(store).use(router).use(Antd);
   app.mount('#app');
+
+  store.commit(MutationTypes.SetProfile, container.keycloak.tokenParsed)
 
   app.config.errorHandler = (err: any, vm: any, info: any) => {
     handlerError(err, vm, info);
@@ -46,7 +48,6 @@ async function main() {
 main().then();
 
 router.push({path: window.location.href}).then()
-
 
 
 

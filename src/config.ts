@@ -1,6 +1,5 @@
 import {useStore} from "@/store";
-import {Alert} from "@/store/modules/alert/state";
-import {MutationTypes} from "@/store/modules/alert/mutations";
+import {MutationTypes} from '@/store/helpers/typesStore';
 import TypesAlert from '@/store/modules/alert/types';
 
 const store = useStore()

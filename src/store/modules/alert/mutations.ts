@@ -1,22 +1,22 @@
 import {MutationTree} from 'vuex'
-import {State, Alert} from './state'
+import {StateAlert, Alert} from './state'
 
-export enum MutationTypes {
+export enum MutationTypesAlert {
   SetItems = 'CREATE_ITEM',
   Hide = 'HIDE',
 }
 
-export type Mutations = {
-  [MutationTypes.SetItems](state: State, alert: Alert): void;
-  [MutationTypes.Hide](state: State): void;
+export type MutationsAlert = {
+  [MutationTypesAlert.SetItems](state: StateAlert, alert: Alert): void;
+  [MutationTypesAlert.Hide](state: StateAlert): void;
 }
 
-export const mutations: MutationTree<State> & Mutations = {
-  [MutationTypes.SetItems](state, alert) {
+export const mutations: MutationTree<StateAlert> & MutationsAlert = {
+  [MutationTypesAlert.SetItems](state, alert) {
     state.alert = alert
     state.isVisible = true
   },
-  [MutationTypes.Hide](state) {
+  [MutationTypesAlert.Hide](state) {
     state.isVisible = false
     state.alert = {}
   }
