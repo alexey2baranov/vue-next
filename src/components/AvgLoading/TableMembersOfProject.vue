@@ -2,7 +2,7 @@
   <a-table :loading="isLoading"
            :bordered="true"
            :pagination="{defaultPageSize: 7}"
-           size="small"
+           size="medium"
            rowKey='id'
            :title="() => 'Сотрудники'"
            :data-source="data"
