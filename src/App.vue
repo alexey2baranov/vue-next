@@ -4,18 +4,11 @@
     <side-bar :collapsed="collapsed"/>
     <a-layout>
       <the-header @switch-collapsed="switchCollapsed" />
-      <a-layout-content
-        :style="{
-          margin: '24px 16px',
-          padding: '24px',
-          background: '#ececec',
-          minHeight: '280px',
-          height: '100%',
-        }"
-      >
+      <a-layout-content>
         <router-view />
       </a-layout-content>
     </a-layout>
+<!--    <a-footer>footer</a-footer>-->
   </a-layout>
 </template>
 <script lang="ts">
@@ -23,8 +16,9 @@ import {
   ref,
   defineComponent
 } from "vue";
-import TheHeader from "@/components/App/TheHeader.vue";
-import SideBar from "@/components/App/SideBar.vue";
+import TheHeader from "@/components/App/TheHeader.vue"
+import SideBar from "@/components/App/SideBar.vue"
+// import Footer from "@/components/App/Fotter.vue"
 
 import Alert from './components/App/Alert.vue'
 
@@ -33,6 +27,7 @@ export default defineComponent ({
     TheHeader,
     SideBar,
     Alert,
+    // Footer,
   },
   setup () {
     const collapsed = ref(false)

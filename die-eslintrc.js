@@ -6,9 +6,9 @@ module.exports = {
   },
 
   'extends': [
-    'plugin:vue/vue3-essential',
-    'eslint:recommended',
-    '@vue/typescript/recommended'
+    // 'plugin:vue/vue3-essential',
+    // 'eslint:recommended',
+    // '@vue/typescript/recommended'
   ],
 
   parserOptions: {
@@ -22,7 +22,9 @@ module.exports = {
       "destructuring": "any",
       "ignoreReadBeforeAssign": false
     }],
-    "@typescript-eslint/interface-name-prefix": [ "off", { "prefixWithI": "always" }]
+    'no-unused-vars': 'off',
+    'no-empty-function': 'off',
+    "interface-name-prefix": [ "off", { "prefixWithI": "always" }]
   },
 
   overrides: [

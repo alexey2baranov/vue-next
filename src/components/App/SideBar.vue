@@ -1,6 +1,6 @@
 <template>
   <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible>
-    <div class="logo" style="color: white; display:flex; justify-content: center; align-items: center">Dashboard</div>
+    <div class="logo" style="color: white; display:flex; justify-content: center; align-items: center">ФССП</div>
     <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys">
       <a-menu-item key="1">
         <user-outlined />
