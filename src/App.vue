@@ -1,14 +1,13 @@
 <template>
-  <alert />
   <a-layout id="components-layout-demo-custom-trigger">
     <side-bar :collapsed="collapsed"/>
     <a-layout>
-      <the-header @switch-collapsed="switchCollapsed" />
+      <the-header @switch-collapsed="switchCollapsed">
+      </the-header>
       <a-layout-content>
-        <router-view />
+        <router-view/>
       </a-layout-content>
     </a-layout>
-<!--    <a-footer>footer</a-footer>-->
   </a-layout>
 </template>
 <script lang="ts">
@@ -18,18 +17,13 @@ import {
 } from "vue";
 import TheHeader from "@/components/App/TheHeader.vue"
 import SideBar from "@/components/App/SideBar.vue"
-// import Footer from "@/components/App/Fotter.vue"
 
-import Alert from './components/App/Alert.vue'
-
-export default defineComponent ({
+export default defineComponent({
   components: {
     TheHeader,
     SideBar,
-    Alert,
-    // Footer,
   },
-  setup () {
+  setup() {
     const collapsed = ref(false)
 
     const switchCollapsed = () => collapsed.value = !collapsed.value

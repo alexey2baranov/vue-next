@@ -1,14 +1,19 @@
 <template>
   <a-layout-header style="background: #fff; padding: 0">
-      <MenuUnfoldOutlined v-if="isCollapsed"
-                          class="trigger"
-                          @click="collapsed"
-      />
-      <MenuFoldOutlined v-else
+<!--    <MenuUnfoldOutlined v-if="isCollapsed"
                         class="trigger"
                         @click="collapsed"
-      />
-    </a-layout-header>
+    />
+    <MenuFoldOutlined v-else
+                      class="trigger"
+                      @click="collapsed"
+    />-->
+    <a-page-header
+        style="border: 1px solid rgb(235, 237, 240)"
+        title="Загрузка реестра взысканий"
+        @back="collapsed"
+    />
+  </a-layout-header>
 </template>
 
 <script lang="ts">
@@ -40,14 +45,15 @@ export default {
 };
 </script>
 <style scoped>
- .trigger {
+.trigger {
   font-size: 18px;
   line-height: 64px;
   padding: 0 24px;
   cursor: pointer;
   transition: color 0.3s;
 }
- .trigger:hover {
+
+.trigger:hover {
   color: #1890ff;
 }
 </style>

@@ -1,40 +1,44 @@
 <template>
-  <div class="home">
-    <a-row>
-      <a-col>
-      </a-col>
-      <a-col>
-        <a-upload-dragger
-            name="file"
-            :multiple="true"
-            action="http://localhost:8080/parse"
-            @change="handleChange"
-            style="max-width: 400px;"
-        >
-          <p class="ant-upload-drag-icon">
-            <a-icon type="inbox"/>
-          </p>
-          <p class="ant-upload-text">
-            Нажмите или перенесите файлы для загрузки
-          </p>
-          <p class="ant-upload-hint">
-            Поддерживает единичную и множественную загрузку
-          </p>
-        </a-upload-dragger>
-      </a-col>
-      <a-col>
-      </a-col>
-    </a-row>
-
+  <div style="padding: 25px; height: 80%;">
+    <a-upload-dragger
+        name="file"
+        :multiple="true"
+        action="http://localhost:8080/parse"
+        :showUploadList="{ showPreviewIcon: false, showRemoveIcon: false }"
+        @change="handleChange"
+    >
+      <p class="ant-upload-drag-icon">
+        <a-icon type="inbox"/>
+      </p>
+      <p class="ant-upload-text">
+        Нажмите или перенесите файлы для загрузки
+      </p>
+      <p class="ant-upload-hint">
+        Поддерживает единичную и множественную загрузку
+      </p>
+    </a-upload-dragger>
   </div>
 </template>
 
 <script lang="ts">
 import {defineComponent,} from 'vue';
+import {
+  HomeOutlined,
+  SettingFilled,
+  SmileOutlined,
+  SyncOutlined,
+  LoadingOutlined,
+} from '@ant-design/icons-vue';
 
 export default defineComponent({
   name: 'Home',
-  components: {},
+  components: {
+    HomeOutlined,
+    SettingFilled,
+    SmileOutlined,
+    SyncOutlined,
+    LoadingOutlined,
+  },
   methods: {
     async handleChange(info) {
       if (info.file.status !== 'uploading') {
